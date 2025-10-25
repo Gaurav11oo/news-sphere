@@ -26,7 +26,7 @@ const PAGE_SIZE = 9;
 const API_KEY =
   process.env.REACT_APP_GNEWS_API_KEY ||
   "pub_6531178e7b95fda2f63c9c06dc88e9fd90e9e";
-const API_BASE_URL = "https://gnews.io/api/v4";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const formatDate = (dateString) => {
   if (!dateString) return "Unknown date";
