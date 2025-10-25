@@ -22,6 +22,12 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(rateLimiter);
 
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "build")));
+app.get("*", (req, res) =>
+  res.sendFile(path.join(__dirname, "build", "index.html"))
+);
+
 // Routes
 app.get("/", (req, res) => {
   res.json({ message: "News API Server is running!" });
