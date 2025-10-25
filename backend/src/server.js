@@ -27,12 +27,6 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(rateLimiter);
 
-// Static frontend (optional)
-const __dirnameResolved = path.resolve();
-app.use(express.static(path.join(__dirnameResolved, "build")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirnameResolved, "build", "index.html"));
-});
 
 // Routes
 app.get("/", (req, res) => {
